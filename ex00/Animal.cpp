@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 20:31:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/17 19:20:10 by diana            ###   ########.fr       */
+/*   Created: 2025/11/16 16:25:17 by diana             #+#    #+#             */
+/*   Updated: 2025/11/17 17:20:23 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include <iostream>
+//En : type(type) estás diciendo: "La cajita interna type va a guardar lo que vino como type del usuario."
+Animal::Animal(const std::string& type) : type(type) {}
 
-int main()
+Animal::~Animal() {}
+
+std::string Animal::getType() const
 {
-    const Animal* animal1 = new Dog();
-    const Animal* animal2 = new Cat();
+	return type;
+}
 
-    std::cout << animal1->getType() << " says: ";
-    animal1->makeSound();
-
-    std::cout << animal2->getType() << " says: ";
-    animal2->makeSound();
-
-    delete animal1;
-    delete animal2;
-
-    return 0;
+void Animal::makeSound() const
+{
+	std::cout << "The animal make a generic sound" << std::endl;
 }

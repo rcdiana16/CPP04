@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 20:31:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/17 19:20:10 by diana            ###   ########.fr       */
+/*   Created: 2025/11/16 16:25:27 by diana             #+#    #+#             */
+/*   Updated: 2025/11/17 16:46:57 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
 #include <iostream>
+#include <string>
 
-int main()
+class Animal
 {
-    const Animal* animal1 = new Dog();
-    const Animal* animal2 = new Cat();
+	public:
+	Animal();
+	Animal(const std::string& type);
+	virtual ~Animal();
 
-    std::cout << animal1->getType() << " says: ";
-    animal1->makeSound();
+	std::string getType() const;
+	virtual void makeSound() const;
 
-    std::cout << animal2->getType() << " says: ";
-    animal2->makeSound();
+	private:
+	std::string type;
 
-    delete animal1;
-    delete animal2;
+};
 
-    return 0;
-}
+#endif

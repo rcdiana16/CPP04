@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 20:31:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/17 19:20:10 by diana            ###   ########.fr       */
+/*   Created: 2025/11/16 16:25:31 by diana             #+#    #+#             */
+/*   Updated: 2025/11/17 17:51:27 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+
 #include "Dog.hpp"
-#include "Cat.hpp"
-#include <iostream>
 
-int main()
+Dog::Dog() : Animal("Dog") {}
+
+Dog::~Dog() { }
+
+void Dog::makeSound() const
 {
-    const Animal* animal1 = new Dog();
-    const Animal* animal2 = new Cat();
-
-    std::cout << animal1->getType() << " says: ";
-    animal1->makeSound();
-
-    std::cout << animal2->getType() << " says: ";
-    animal2->makeSound();
-
-    delete animal1;
-    delete animal2;
-
-    return 0;
+	std::cout << "Woof Woof" << std::endl;
 }
