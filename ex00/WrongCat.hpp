@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 16:25:17 by diana             #+#    #+#             */
-/*   Updated: 2025/11/17 20:17:46 by diana            ###   ########.fr       */
+/*   Created: 2025/11/18 17:07:30 by diana             #+#    #+#             */
+/*   Updated: 2025/11/18 17:44:39 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-//En : type(type) estás diciendo: "La cajita interna type va a guardar lo que vino como type del usuario."
-Animal::Animal(const std::string& type) : type(type) {}
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-Animal::Animal() : type("Generic") {}
+#include <iostream>
+#include <string>
+#include "WrongAnimal.hpp"
 
-Animal::~Animal() {}
-
-std::string Animal::getType() const
+class WrongCat : public WrongAnimal
 {
-	return type;
-}
+public:
+    WrongCat();
+    ~WrongCat();
 
-void Animal::makeSound() const
-{
-	std::cout << "The animal make a generic sound" << std::endl;
-}
+    void makeSound() const;
+};
+
+#endif

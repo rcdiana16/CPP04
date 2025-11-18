@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 16:25:17 by diana             #+#    #+#             */
-/*   Updated: 2025/11/17 20:17:46 by diana            ###   ########.fr       */
+/*   Created: 2025/11/18 17:07:27 by diana             #+#    #+#             */
+/*   Updated: 2025/11/18 17:45:30 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-//En : type(type) estás diciendo: "La cajita interna type va a guardar lo que vino como type del usuario."
-Animal::Animal(const std::string& type) : type(type) {}
+#include "WrongCat.hpp"
 
-Animal::Animal() : type("Generic") {}
-
-Animal::~Animal() {}
-
-std::string Animal::getType() const
+WrongCat::WrongCat()
 {
-	return type;
+    this->type = "WrongCat";
+    std::cout << "WrongCat constructor called" << std::endl;
 }
 
-void Animal::makeSound() const
+WrongCat::~WrongCat()
 {
-	std::cout << "The animal make a generic sound" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
+}
+
+void WrongCat::makeSound() const
+{
+    std::cout << "WrongCat says: Meeeoooow??? (but no override)" << std::endl;
 }
