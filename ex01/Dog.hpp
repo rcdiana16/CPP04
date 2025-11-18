@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 16:35:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:41:53 by diana            ###   ########.fr       */
+/*   Created: 2025/11/16 16:25:35 by diana             #+#    #+#             */
+/*   Updated: 2025/11/18 21:34:39 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-Cat::Cat() : Animal("Cat") {}
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat::~Cat(){}
-
-void Cat::makeSound() const
+class Dog : public Animal
 {
-	std::cout << "Meaow Meaow" << std::endl;
-}
+	public:
+	Dog();
+	Dog(const Dog& other); 
+	~Dog();
+
+	Dog& operator=(const Dog& other);
+	void makeSound() const;
+
+	Brain* getBrain() const;
+
+	private:
+	Brain* brain;
+};
+
+#endif

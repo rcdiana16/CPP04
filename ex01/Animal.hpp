@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 16:35:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:41:53 by diana            ###   ########.fr       */
+/*   Created: 2025/11/16 16:25:27 by diana             #+#    #+#             */
+/*   Updated: 2025/11/17 16:46:57 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-Cat::Cat() : Animal("Cat") {}
+#include <iostream>
+#include <string>
 
-Cat::~Cat(){}
-
-void Cat::makeSound() const
+class Animal
 {
-	std::cout << "Meaow Meaow" << std::endl;
-}
+	public:
+	Animal();
+	Animal(const std::string& type);
+	virtual ~Animal();
+
+	std::string getType() const;
+	virtual void makeSound() const;
+
+	private:
+	std::string type;
+
+};
+
+#endif

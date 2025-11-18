@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 16:35:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:41:53 by diana            ###   ########.fr       */
+/*   Created: 2025/11/18 20:54:43 by diana             #+#    #+#             */
+/*   Updated: 2025/11/18 21:08:55 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-Cat::Cat() : Animal("Cat") {}
+#include <iostream>
+#include <string>
 
-Cat::~Cat(){}
-
-void Cat::makeSound() const
+class Brain
 {
-	std::cout << "Meaow Meaow" << std::endl;
-}
+	public:
+    Brain();
+    Brain(const Brain& other);
+    ~Brain();
+
+    Brain& operator=(const Brain& other);
+
+    std::string getIdea(int index) const;
+    void setIdea(int index, const std::string& idea);
+
+	private:
+    std::string ideas[100];
+};
+
+#endif
