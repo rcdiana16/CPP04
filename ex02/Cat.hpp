@@ -6,7 +6,7 @@
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:35:06 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:36:20 by diana            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:36:45 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,16 @@
 
 class Cat : public Animal
 {
-	public:
-	Cat();
-	Cat(const Cat& other);
-	~Cat();
+private:
+    Brain* _brain;
 
-	Cat& operator=(const Cat& other);
+public:
+    Cat();
+    Cat(const Cat& other);
+    Cat& operator=(const Cat& other);
+    ~Cat();
 
-	void makeSound() const;
-
-	Brain* getBrain() const;
-
-	private:
-    Brain* brain;
+    void makeSound() const;
 };
 
 #endif

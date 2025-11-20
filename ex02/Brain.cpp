@@ -6,7 +6,7 @@
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:08:58 by diana             #+#    #+#             */
-/*   Updated: 2025/11/19 16:09:28 by diana            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:31:00 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ Brain& Brain::operator=(const Brain& other)
     return *this;
 }
 
-Brain::~Brain() {}
+Brain::~Brain()
+{
+}
 
 void Brain::setIdea(int index, const std::string& idea)
 {
@@ -48,4 +50,3 @@ std::string Brain::getIdea(int index) const
         return ideas[index];
     return "";
 }
-

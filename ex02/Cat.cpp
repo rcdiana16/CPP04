@@ -6,47 +6,47 @@
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:35:02 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:41:39 by diana            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:37:51 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include <iostream>
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat()
 {
-    brain = new Brain();
-    std::cout << "Cat constructor called" << std::endl;
+    this->type = "Cat";
+    _brain = new Brain();
+    std::cout << "Cat created" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
-    brain = new Brain(*other.brain);
-    std::cout << "Cat copy constructor called" << std::endl;
-}
-
-Cat::~Cat()
-{
-    delete brain;
-    std::cout << "Cat destructor called" << std::endl;
+    this->type = other.type;
+    _brain = new Brain(*other._brain); 
+    std::cout << "Cat copied" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
     if (this != &other)
     {
-        Animal::operator=(other);
-        delete brain;
-        brain = new Brain(*other.brain);
+        this->type = other.type;
+
+        delete _brain; 
+        _brain = new Brain(*other._brain);
     }
-    return *this;
+    std::cout << "Cat assigned" << std::endl;
+    return (*this);
+}
+
+Cat::~Cat()
+{
+    delete _brain;
+    std::cout << "Cat destroyed" << std::endl;
 }
 
 void Cat::makeSound() const
 {
-    std::cout << "Meaow Meaow" << std::endl;
-}
-
-Brain* Cat::getBrain() const
-{
-    return brain;
+    std::cout << "Meow!" << std::endl;
 }

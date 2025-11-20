@@ -6,7 +6,7 @@
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 20:54:43 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:08:55 by diana            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:29:55 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 
 class Brain
 {
-	public:
+public:
     Brain();
     Brain(const Brain& other);
+    Brain& operator=(const Brain& other);
     ~Brain();
 
-    Brain& operator=(const Brain& other);
-
-    std::string getIdea(int index) const;
     void setIdea(int index, const std::string& idea);
+    std::string getIdea(int index) const;
 
-	private:
+private:
     std::string ideas[100];
 };
 
 #endif
+

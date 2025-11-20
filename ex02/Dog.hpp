@@ -6,7 +6,7 @@
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 16:25:35 by diana             #+#    #+#             */
-/*   Updated: 2025/11/18 21:34:39 by diana            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:32:18 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 
 class Dog : public Animal
 {
-	public:
-	Dog();
-	Dog(const Dog& other); 
-	~Dog();
+public:
+    Dog();                      
+    Dog(const Dog& other);       
+    Dog& operator=(const Dog& other); 
+    virtual ~Dog();              
 
-	Dog& operator=(const Dog& other);
-	void makeSound() const;
+    virtual void makeSound() const;
 
-	Brain* getBrain() const;
+    Brain* getBrain() const;
 
-	private:
-	Brain* brain;
+private:
+    Brain* brain;
 };
 
 #endif

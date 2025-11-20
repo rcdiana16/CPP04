@@ -6,30 +6,38 @@
 /*   By: diana <diana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:43:04 by diana             #+#    #+#             */
-/*   Updated: 2025/11/20 16:04:01 by diana            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:40:05 by diana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "Brain.hpp"
+#include "Animal.hpp"
+#include <iostream>
 
 int main()
 {
+    const int N = 4;
+    Animal* animals[N];
+
     std::cout << "----- Creating Animals -----" << std::endl;
+    for (int i = 0; i < N; i++)
+    {
+        if (i < N / 2)
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+    }
+
+    std::cout << "\n----- Making Sounds -----" << std::endl;
+    for (int i = 0; i < N; i++)
+        animals[i]->makeSound();
+
+    std::cout << "\n----- Testing Deep Copy -----" << std::endl;
     Dog* dog1 = new Dog();
-    Cat* cat1 = new Cat();
-
-    std::cout << "\n----- Making sounds -----" << std::endl;
-    dog1->makeSound();
-    cat1->makeSound();
-
-    std::cout << "\n----- Testing Brain with copy constructor -----" << std::endl;
     dog1->getBrain()->setIdea(0, "I want bones");
-    Dog* dog2 = new Dog(*dog1);
 
+    Dog* dog2 = new Dog(*dog1);
     std::cout << "dog1 idea 0: " << dog1->getBrain()->getIdea(0) << std::endl;
     std::cout << "dog2 idea 0: " << dog2->getBrain()->getIdea(0) << std::endl;
 
@@ -38,27 +46,12 @@ int main()
     std::cout << "dog1 idea 0: " << dog1->getBrain()->getIdea(0) << std::endl;
     std::cout << "dog2 idea 0: " << dog2->getBrain()->getIdea(0) << std::endl;
 
-    std::cout << "\n----- Testing operator= -----" << std::endl;
-    Cat* cat2 = new Cat();
-    cat2->getBrain()->setIdea(0, "I want milk");
+    std::cout << "\n----- Cleaning Up -----" << std::endl;
+    for (int i = 0; i < N; i++)
+        delete animals[i];
 
-    Cat* cat3 = new Cat();
-    *cat3 = *cat2;
-
-    std::cout << "cat2 idea 0: " << cat2->getBrain()->getIdea(0) << std::endl;
-    std::cout << "cat3 idea 0: " << cat3->getBrain()->getIdea(0) << std::endl;
-
-    cat3->getBrain()->setIdea(0, "I want fish");
-    std::cout << "After modifying cat3's brain:" << std::endl;
-    std::cout << "cat2 idea 0: " << cat2->getBrain()->getIdea(0) << std::endl;
-    std::cout << "cat3 idea 0: " << cat3->getBrain()->getIdea(0) << std::endl;
-
-    std::cout << "\n----- Cleaning up -----" << std::endl;
     delete dog1;
     delete dog2;
-    delete cat1;
-    delete cat2;
-    delete cat3;
 
     return 0;
 }
